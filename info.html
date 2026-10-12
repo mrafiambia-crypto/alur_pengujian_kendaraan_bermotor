@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi KIR Smart - Katalog Digital Uji KIR</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dishub: {
+                            50: '#eef6ff',
+                            100: '#d9ecff',
+                            500: '#0066cc',
+                            600: '#0052a3',
+                            700: '#003d7a',
+                            800: '#002952',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling and transitions */
+        html { scroll-behavior: smooth; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Bar / Header -->
+    <header class="bg-gradient-to-r from-dishub-800 via-dishub-700 to-blue-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2.5 rounded-xl border border-white/20 shadow-inner flex items-center justify-center">
+                    <i class="fa-solid fa-truck-fast text-2xl text-blue-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight uppercase flex items-center gap-2">
+                        <span>Edukasi KIR Smart</span>
+                        <span class="text-xs bg-emerald-500/80 text-white px-2 py-0.5 rounded-full font-normal">BLUe Digital</span>
+                    </h1>
+                    <p class="text-xs text-blue-200">UPTD Pengujian Kendaraan Bermotor - Dinas Perhubungan</p>
+                </div>
+            </div>
+            <!-- Quick Contact Badge -->
+            <div class="flex items-center gap-3 text-xs bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
+                <i class="fa-solid fa-headset text-emerald-400 text-sm"></i>
+                <span>Layanan Informasi: <strong>0811-KIR-SMART</strong></span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-dishub-900/90 backdrop-blur-md border-t border-blue-700/50 shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex space-x-1 sm:space-x-4 overflow-x-auto py-2 no-scrollbar">
+                    <button onclick="switchTab('beranda')" id="btn-beranda" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 whitespace-nowrap bg-blue-600 text-white shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i> Beranda
+                    </button>
+                    <button onclick="switchTab('alur')" id="btn-alur" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 whitespace-nowrap text-blue-100 hover:bg-white/10 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> Alur Pelayanan Mandiri
+                    </button>
+                    <button onclick="switchTab('persyaratan')" id="btn-persyaratan" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 whitespace-nowrap text-blue-100 hover:bg-white/10 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i> Persyaratan Teknis
+                    </button>
+                    <button onclick="switchTab('edukasi')" id="btn-edukasi" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 whitespace-nowrap text-blue-100 hover:bg-white/10 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question"></i> Pojok Edukasi & FAQ
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- TAB 1: BERANDA -->
+        <div id="beranda" class="tab-content active space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-br from-dishub-800 via-dishub-700 to-blue-900 rounded-3xl overflow-hidden shadow-2xl text-white p-6 sm:p-12 border border-blue-500/20">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl pointer-events-none">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+                <div class="max-w-3xl space-y-6 relative z-10">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <i class="fa-solid fa-circle-check text-[10px]"></i> Resmi, Cepat, & Transparan
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Wujudkan Keselamatan Jalan Bersama <span class="text-blue-300">Uji KIR Smart</span>
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-200 font-light leading-relaxed">
+                        Katalog digital interaktif pengujian berkala kendaraan bermotor. Akses informasi alur pelayanan mandiri, cek persyaratan teknis kelaikan jalan, dan pastikan kendaraan Anda aman sebelum beroperasi.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('alur')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition transform active:scale-95 flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Lihat Alur Pelayanan
+                        </button>
+                        <button onclick="switchTab('persyaratan')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3 rounded-xl font-semibold backdrop-blur transition flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-list"></i> Syarat Kelaikan Jalan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Info Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-dishub-600 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Pelayanan Mandiri</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Daftar uji KIR secara online, unggah berkas, dan lakukan pembayaran non-tunai dengan mudah kapan pun dan di mana pun.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">BLUe (Bukti Lulus Uji)</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Sertifikat digital, stiker hologram resmi, dan smart card yang terintegrasi langsung dengan database nasional Kementerian Perhubungan.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Keselamatan Utama</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pengujian komponen vital kendaraan guna meminimalisir kecelakaan lalu lintas akibat kegagalan teknis di jalan raya.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: ALUR PELAYANAN MANDIRI -->
+        <div id="alur" class="tab-content space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-dishub-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Step-by-Step Interaktif</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Alur Pelayanan Uji KIR Mandiri</h2>
+                <p class="text-slate-600 text-sm">Ikuti 5 tahapan mudah dalam pengujian kendaraan bermotor secara transparan dan terintegrasi.</p>
+            </div>
+
+            <!-- Steps Grid / Interactive Container -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Step 1 -->
+                <div onclick="selectAlur(1)" id="alur-card-1" class="alur-card cursor-pointer bg-white p-5 rounded-2xl shadow-sm border-2 border-dishub-600 transition hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="w-8 h-8 rounded-full bg-dishub-600 text-white font-bold text-sm flex items-center justify-center">1</span>
+                            <i class="fa-solid fa-laptop text-dishub-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Pendaftaran Online</h4>
+                        <p class="text-xs text-slate-500">Scan QR / buka website, input nomor uji & plat nomor kendaraan.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-dishub-600 font-semibold flex items-center gap-1">
+                        <span>Lihat Detail</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div onclick="selectAlur(2)" id="alur-card-2" class="alur-card cursor-pointer bg-white p-5 rounded-2xl shadow-sm border-2 border-slate-200 transition hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center" id="badge-2">2</span>
+                            <i class="fa-solid fa-file-shield text-slate-400" id="icon-2"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Validasi Berkas</h4>
+                        <p class="text-xs text-slate-500">Unggah STNK, buku KIR lama, dan verifikasi data kendaraan.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-semibold flex items-center gap-1" id="link-text-2">
+                        <span>Lihat Detail</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div onclick="selectAlur(3)" id="alur-card-3" class="alur-card cursor-pointer bg-white p-5 rounded-2xl shadow-sm border-2 border-slate-200 transition hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center" id="badge-3">3</span>
+                            <i class="fa-solid fa-qrcode text-slate-400" id="icon-3"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Pembayaran Non-Tunai</h4>
+                        <p class="text-xs text-slate-500">Bayar via QRIS, Virtual Account, atau loket resmi retribusi.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-semibold flex items-center gap-1" id="link-text-3">
+                        <span>Lihat Detail</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div onclick="selectAlur(4)" id="alur-card-4" class="alur-card cursor-pointer bg-white p-5 rounded-2xl shadow-sm border-2 border-slate-200 transition hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center" id="badge-4">4</span>
+                            <i class="fa-solid fa-car-burst text-slate-400" id="icon-4"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Proses Pengujian</h4>
+                        <p class="text-xs text-slate-500">Uji emisi, rem, lampu, side slip, dan kolong kendaraan di jalur uji.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-semibold flex items-center gap-1" id="link-text-4">
+                        <span>Lihat Detail</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div onclick="selectAlur(5)" id="alur-card-5" class="alur-card cursor-pointer bg-white p-5 rounded-2xl shadow-sm border-2 border-slate-200 transition hover:shadow-md flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center" id="badge-5">5</span>
+                            <i class="fa-solid fa-certificate text-slate-400" id="icon-5"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Penerbitan BLUe</h4>
+                        <p class="text-xs text-slate-500">Sertifikat digital, stiker uji, dan kartu lulus uji diterbitkan.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 font-semibold flex items-center gap-1" id="link-text-5">
+                        <span>Lihat Detail</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Step Info Box -->
+            <div id="alur-detail-box" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6">
+                <div class="w-16 h-16 bg-blue-50 text-dishub-600 rounded-2xl flex items-center justify-center text-3xl font-extrabold flex-shrink-0 border border-blue-100" id="detail-icon-wrap">
+                    <i class="fa-solid fa-laptop" id="detail-icon"></i>
+                </div>
+                <div class="space-y-2 flex-grow text-center md:text-left">
+                    <div class="inline-block text-xs font-bold text-dishub-600 bg-blue-50 px-2.5 py-0.5 rounded-full" id="detail-tag">Tahap 1 dari 5</div>
+                    <h3 class="text-xl font-bold text-slate-900" id="detail-title">Pendaftaran Online</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" id="detail-desc">
+                        Pemohon mengakses portal pelayanan mandiri atau memindai QR Code di lokasi pengujian. Masukkan nomor uji kendaraan dan nomor polisi (Plat Nomor) untuk memverifikasi data kepemilikan dan jadwal uji berkala.
+                    </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-2 rounded-xl font-medium border border-slate-200 block text-center">
+                        Estimasi: 5 Menit
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: PERSYARATAN TEKNIS KELAIKAN JALAN -->
+        <div id="persyaratan" class="tab-content space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Checklist Standar Kelaikan</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Persyaratan Teknis Kelaikan Jalan</h2>
+                <p class="text-slate-600 text-sm">Pastikan komponen kendaraan Anda memenuhi standar uji berikut agar lolos pengujian tanpa kendala.</p>
+            </div>
+
+            <!-- Grid Checklist Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-blue-50 text-dishub-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <span class="text-xs bg-blue-50 text-dishub-700 px-2.5 py-1 rounded-full font-semibold">Rem & Kaki-kaki</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Sistem Pengereman</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Efisiensi pengereman roda utama dan rem parkir harus berfungsi optimal. Perbedaan gaya pengereman roda kiri dan kanan tidak melebihi ambang batas toleransi (maksimal 8-10%).
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Pedal rem kokoh & tidak blong</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Kampas & piringan rem layak</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span class="text-xs bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full font-semibold">Elektrik</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Lampu & Kelistrikan</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Seluruh lampu penerangan (lampu utama dekat/jauh, lampu rem, lampu sein, lampu mundur, dan lampu plat nomor) menyala terang dengan arah sinar lampu utama yang sesuai.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Klakson berfungsi nyaring</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Wiper & air washer aktif</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-circle"></i>
+                            </div>
+                            <span class="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full font-semibold">Ban & Roda</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Ban & Kaki-kaki</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Ketebalan alur ban (TWI - Tread Wear Indicator) minimal 1 mm. Ban tidak boleh vulkanisir pecah, benjol, atau retak samping. Suspensi dan ball joint bebas dari keausan berlebih.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Tekanan angin sesuai standar</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Baut roda lengkap & kencang</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-smog"></i>
+                            </div>
+                            <span class="text-xs bg-purple-50 text-purple-700 px-2.5 py-1 rounded-full font-semibold">Lingkungan</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Emisi Gas Buang</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kadar gas buang (CO dan HC untuk mesin bensin, atau tingkat kepekatan asap / Opasitas untuk mesin diesel) tidak boleh melampaui ambang batas baku mutu emisi yang berlaku.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Knalpot tidak bocor</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Bebas asap hitam berlebih</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-ruler-combined"></i>
+                            </div>
+                            <span class="text-xs bg-rose-50 text-rose-700 px-2.5 py-1 rounded-full font-semibold">Dimensi</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Dimensi & Muatan (JBI)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Dimensi kendaraan (panjang, lebar, tinggi, julur belakang/overhang) harus sesuai dengan Surat Rancang Bangun (SRUT). Tidak ada modifikasi over dimension/over load (ODOL).
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Bebas pelanggaran ODOL</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Ada und-run protection</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <span class="text-xs bg-cyan-50 text-cyan-700 px-2.5 py-1 rounded-full font-semibold">Keselamatan</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Perlengkapan Darurat</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kendaraan wajib dilengkapi segitiga pengaman, dongkrak, kunci roda, kotak P3K, serta pemadam api ringan (APAR) yang masih berfungsi dengan baik dan mudah dijangkau.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> APAR tersertifikasi</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Sabuk pengaman berfungsi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: POJOK EDUKASI & FAQ -->
+        <div id="edukasi" class="tab-content space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-dishub-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Pusat Informasi & Tanya Jawab</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Pojok Edukasi & FAQ Uji KIR</h2>
+                <p class="text-slate-600 text-sm">Temukan jawaban seputar jadwal wajib uji, tips lolos pengujian pertama kali, serta pentingnya keselamatan.</p>
+            </div>
+
+            <!-- FAQ Accordions -->
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 hover:bg-slate-50">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-blue-100 text-dishub-600 flex items-center justify-center text-xs font-bold">Q</span>
+                            Berapa bulan sekali kendaraan wajib melakukan Uji KIR?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="faq-icon-1"></i>
+                    </button>
+                    <div id="faq-body-1" class="hidden px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        Berdasarkan peraturan perundang-undangan yang berlaku, uji berkala (Uji KIR) wajib dilakukan setiap <strong>6 (enam) bulan sekali</strong> untuk mobil penumpang umum, mobil barang (truk/pick-up), bus, serta kendaraan khusus.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 hover:bg-slate-50">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-blue-100 text-dishub-600 flex items-center justify-center text-xs font-bold">Q</span>
+                            Apa saja syarat dokumen yang harus disiapkan saat datang ke lokasi uji?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="faq-icon-2"></i>
+                    </button>
+                    <div id="faq-body-2" class="hidden px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        Dokumen yang wajib dibawa meliputi: STNK asli yang masih berlaku, Buku Uji KIR lama (jika fisik), KTP pemilik kendaraan atau surat kuasa apabila diwakilkan, serta bukti pendaftaran online atau pembayaran retribusi non-tunai.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 hover:bg-slate-50">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-blue-100 text-dishub-600 flex items-center justify-center text-xs font-bold">Q</span>
+                            Bagaimana tips agar kendaraan langsung lulus uji pada pemeriksaan pertama?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="faq-icon-3"></i>
+                    </button>
+                    <div id="faq-body-3" class="hidden px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        Sebelum uji KIR, lakukan servis berkala ringan seperti pengecekan rem di bengkel langganan, pastikan semua lampu menyala normal, bersihkan kolong dan mesin kendaraan dari kotoran berlebih, serta pastikan ban memiliki alur kembangan yang masih tebal.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden transition">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center gap-4 hover:bg-slate-50">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 rounded-lg bg-blue-100 text-dishub-600 flex items-center justify-center text-xs font-bold">Q</span>
+                            Apa sanksi jika telat atau tidak melakukan uji KIR berkala?
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200" id="faq-icon-4"></i>
+                    </button>
+                    <div id="faq-body-4" class="hidden px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                        Kendaraan yang terlambat melakukan uji berkala akan dikenakan denda administratif bulanan sesuai perda yang berlaku, serta dapat dikenakan sanksi tilang oleh pihak kepolisian di jalan raya karena dianggap tidak memenuhi persyaratan kelaikan teknis.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white mt-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-blue-600 p-2 rounded-lg text-white">
+                            <i class="fa-solid fa-building-shield text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-base tracking-wide">UPTD Pengujian Kendaraan Bermotor</h4>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Komitmen memberikan pelayanan publik yang transparan, cepat, bebas calo, dan berorientasi penuh pada keselamatan berlalu lintas di jalan raya.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-sm font-semibold text-blue-300 uppercase tracking-wider">Jam Operasional Layanan</h5>
+                    <p class="text-xs text-slate-400">Senin - Kamis: 08.00 - 14.00 WIB</p>
+                    <p class="text-xs text-slate-400">Jumat: 08.00 - 11.30 WIB</p>
+                    <p class="text-xs text-slate-400">Sabtu & Minggu / Hari Libur Nasional: Tutup</p>
+                </div>
+                <div class="space-y-2">
+                    <h5 class="text-sm font-semibold text-blue-300 uppercase tracking-wider">Tautan Cepat & Akses</h5>
+                    <div class="flex flex-col space-y-1 text-xs text-slate-400">
+                        <a href="#alur" onclick="switchTab('alur')" class="hover:text-white transition">Alur Pelayanan Mandiri</a>
+                        <a href="#persyaratan" onclick="switchTab('persyaratan')" class="hover:text-white transition">Persyaratan Teknis Uji</a>
+                        <a href="#edukasi" onclick="switchTab('edukasi')" class="hover:text-white transition">Pusat Bantuan & FAQ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 UPTD Pengujian Kendaraan Bermotor - Dinas Perhubungan. All rights reserved.</p>
+                <p class="text-blue-400 font-medium">Edukasi KIR Smart v2.5 - Digitalisasi Layanan Publik</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interaction Logic -->
+    <script>
+        // Tab Switching Function
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active styles from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-blue-100', 'hover:bg-white/10');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+
+            // Activate selected button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-blue-100', 'hover:bg-white/10');
+                activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            }
+
+            // Scroll to top of content smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Alur Pelayanan Interactive Data
+        const alurData = {
+            1: {
+                title: "Pendaftaran Online",
+                tag: "Tahap 1 dari 5",
+                desc: "Pemohon mengakses portal pelayanan mandiri atau memindai QR Code di lokasi pengujian. Masukkan nomor uji kendaraan dan nomor polisi (Plat Nomor) untuk memverifikasi data kepemilikan dan jadwal uji berkala.",
+                icon: "fa-laptop"
+            },
+            2: {
+                title: "Validasi Berkas",
+                tag: "Tahap 2 dari 5",
+                desc: "Sistem atau petugas memvalidasi kelengkapan dokumen digital yang diunggah seperti STNK, buku KIR sebelumnya, serta surat kuasa apabila kendaraan didaftarkan oleh pihak ketiga.",
+                icon: "fa-file-shield"
+            },
+            3: {
+                title: "Pembayaran Non-Tunai",
+                tag: "Tahap 3 dari 5",
+                desc: "Lakukan pembayaran retribusi pengujian kendaraan secara transparan melalui QRIS, transfer Virtual Account bank daerah, atau EDC di loket resmi tanpa kontak langsung dengan calo.",
+                icon: "fa-qrcode"
+            },
+            4: {
+                title: "Proses Pengujian di Jalur Uji",
+                tag: "Tahap 4 dari 5",
+                desc: "Kendaraan memasuki lini pengujian uji emisi gas buang, pengujian rem (brake tester), uji lampu (headlight tester), side slip, dan pemeriksaan kolong secara terkomputerisasi.",
+                icon: "fa-car-burst"
+            },
+            5: {
+                title: "Penerbitan BLUe & Smart Card",
+                tag: "Tahap 5 dari 5",
+                desc: "Jika kendaraan dinyatakan lulus uji, Bukti Lulus Uji Elektronik (BLUe), stiker hologram resmi, dan smart card langsung diterbitkan dan diserahkan kepada pengemudi.",
+                icon: "fa-certificate"
+            }
+        };
+
+        function selectAlur(stepNum) {
+            // Reset all alur cards border
+            for (let i = 1; i <= 5; i++) {
+                const card = document.getElementById('alur-card-' + i);
+                card.classList.remove('border-dishub-600', 'ring-2', 'ring-blue-100');
+                card.classList.add('border-slate-200');
+                
+                // Reset badge & icon style if needed
+                const badge = document.getElementById('badge-' + i);
+                if(badge) {
+                    badge.classList.remove('bg-dishub-600', 'text-white');
+                    badge.classList.add('bg-slate-200', 'text-slate-700');
+                }
+            }
+
+            // Highlight selected card
+            const selectedCard = document.getElementById('alur-card-' + stepNum);
+            selectedCard.classList.remove('border-slate-200');
+            selectedCard.classList.add('border-dishub-600', 'ring-2', 'ring-blue-100');
+
+            const selectedBadge = document.getElementById('badge-' + stepNum);
+            if(selectedBadge) {
+                selectedBadge.classList.remove('bg-slate-200', 'text-slate-700');
+                selectedBadge.classList.add('bg-dishub-600', 'text-white');
+            }
+
+            // Update detail box content
+            const data = alurData[stepNum];
+            document.getElementById('detail-tag').innerText = data.tag;
+            document.getElementById('detail-title').innerText = data.title;
+            document.getElementById('detail-desc').innerText = data.desc;
+            document.getElementById('detail-icon').className = "fa-solid " + data.icon;
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(id) {
+            const body = document.getElementById('faq-body-' + id);
+            const icon = document.getElementById('faq-icon-' + id);
+            
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                body.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
