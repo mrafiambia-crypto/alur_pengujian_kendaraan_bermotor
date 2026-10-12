@@ -1,1 +1,0 @@
-# alur_pengujian_kendaraan_bermotor
